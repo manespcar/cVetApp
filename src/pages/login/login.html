@@ -1,0 +1,23 @@
+<ion-content padding>
+  <img src="assets/imgs/logo.jpg" class="logo"/>
+  <br/>
+  <form (ngSubmit)="login()" #registerForm="ngForm">
+      <ion-list inset>
+
+        <ion-item>
+          <ion-label stacked>Usuario</ion-label>
+          <ion-input type="text" name="usuario" [(ngModel)]="registerCredentials.usuario"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>Contraseña</ion-label>
+          <ion-input type="password" name="password" [(ngModel)]="registerCredentials.password"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+      <div padding>
+        <button ion-button color="primary" full type="submit">Acceder</button>
+      </div>
+  </form>
+</ion-content>

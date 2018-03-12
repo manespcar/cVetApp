@@ -1,0 +1,11 @@
+app-header {
+	p {
+		text-align: center;
+		font-weight: bold;
+	}
+
+	ion-navbar.toolbar {
+		min-height: 60px;
+    	padding-top: 17px;
+	}
+}
