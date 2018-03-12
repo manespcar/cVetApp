@@ -11,24 +11,32 @@ import 'rxjs/add/operator/map';
 })
 export class DatosUsuarioPage {
 
-  usuario:any;
+  usuario = {nombreCompleto:"", direccion:"", email:"", telefono:""};
 
   constructor(private usuarioProvider: UsuarioProvider, private singleton:SingletonServiceProvider) {
   }
 
   ionViewDidLoad() {
   	this.usuarioProvider.getUserById(this.singleton.userid)
-  	.map(res => {console.log("response "+res)});
-  	/*.subscribe( data => {        
-        this.usuario = data;
+  	.subscribe( data => {        
+        this.usuario.nombreCompleto = data.nombreCompleto;
+        this.usuario.direccion = data.direccion;
+        this.usuario.email = data.email;
+        this.usuario.telefono = data.telefono;
       }, error => {
         console.log(error);
       }
-    );*/ 
+    );
   }
 
   public guardarDatos(){
-  	console.log('guardarDatos -> '+this.usuario.direccion);
+  	this.usuarioProvider.saveDataUser(this.usuario)
+  	.subscribe( data => {        
+        console.log(data);
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 
 }

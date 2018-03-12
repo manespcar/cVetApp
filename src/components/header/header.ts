@@ -10,7 +10,7 @@ export class HeaderComponent {
   text: string;
 
   constructor(private singleton:SingletonServiceProvider) {
-    this.text = "Hola " + singleton.username;
+    this.text = "Hola " + this.singleton.username;
   }
 
 }

@@ -19,4 +19,17 @@ export class UsuarioProvider {
        .map( res => res.json() );
   }
 
+  public saveDataUser(usuario:any){
+  	let headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+
+	usuario.id = this.singleton.userid;
+    let data = JSON.stringify(usuario);
+    console.log(data);
+
+  	return this.http.post(this.singleton.apiUrl + "usuario/save", data, options)
+       .map( res => res.json() );	
+  }
+
 }
