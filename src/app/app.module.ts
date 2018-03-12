@@ -17,6 +17,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { LoginProvider } from '../providers/login/login';
 import { SingletonServiceProvider } from '../providers/singleton-service/singleton-service';
+import { UsuarioProvider } from '../providers/usuario/usuario';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SingletonServiceProvider } from '../providers/singleton-service/singlet
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginProvider,
-    SingletonServiceProvider
+    SingletonServiceProvider,
+    UsuarioProvider
   ]
 })
 export class AppModule {}

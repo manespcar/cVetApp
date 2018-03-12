@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage } from 'ionic-angular';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
+import { SingletonServiceProvider } from '../../providers/singleton-service/singleton-service';
+import 'rxjs/add/operator/map';
 
 @IonicPage()
 @Component({
@@ -9,11 +11,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DatosUsuarioPage {
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  usuario:any;
+
+  constructor(private usuarioProvider: UsuarioProvider, private singleton:SingletonServiceProvider) {
   }
 
   ionViewDidLoad() {
-    
+  	this.usuarioProvider.getUserById(this.singleton.userid)
+  	.map(res => {console.log("response "+res)});
+  	/*.subscribe( data => {        
+        this.usuario = data;
+      }, error => {
+        console.log(error);
+      }
+    );*/ 
+  }
+
+  public guardarDatos(){
+  	console.log('guardarDatos -> '+this.usuario.direccion);
   }
 
 }

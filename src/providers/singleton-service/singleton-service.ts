@@ -6,7 +6,10 @@ export class SingletonServiceProvider {
 
   public username:string;
   public userid:number;
+  public apiUrl:string;
 
-  constructor() { }
+  constructor() { 
+  	this.apiUrl = '/localhost/';
+  }
 
 }
