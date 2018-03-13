@@ -1,0 +1,26 @@
+<ion-header>
+	<app-header></app-header>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-card *ngFor="let mascota of mascotas">
+      <ion-avatar item-start>
+	  	<img src="assets/imgs/default-image.jpg"/>
+	  </ion-avatar>
+	  <ion-card-content>
+	    <ion-card-title>
+	      {{ mascota.nombre }}
+	      </ion-card-title>
+	    <p>
+	      The most popular industrial group ever, and largely
+	      responsible for bringing the music to a mass audience.
+	    </p>
+	  </ion-card-content>
+	</ion-card>
+
+  </ion-list>
+
+</ion-content>

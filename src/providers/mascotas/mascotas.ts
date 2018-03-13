@@ -3,31 +3,26 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { SingletonServiceProvider } from '../../providers/singleton-service/singleton-service';
 import 'rxjs/add/operator/map';
 
+/*
+  Generated class for the MascotasProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
 @Injectable()
-export class UsuarioProvider {
+export class MascotasProvider {
 
   constructor(private http: Http, private singleton:SingletonServiceProvider) {
     
   }
 
-  public getUserById(id:number){
+  public recuperarMascotasByUsuarioId(id:number){
   	let headers = new Headers();
     headers.append('Content-Type', 'application/json' );
     let options = new RequestOptions({ headers: headers });
    
-    return this.http.get(this.singleton.apiUrl + "usuario/" + id, options)
+    return this.http.get(this.singleton.apiUrl + "/mascotas/usuario/" + id, options)
        .map( res => res.json() );
-  }
-
-  public saveDataUser(usuario:any){
-  	let headers = new Headers();
-    headers.append('Content-Type', 'application/json' );
-    let options = new RequestOptions({ headers: headers });
-
-    let data = JSON.stringify(usuario);
-
-  	return this.http.post(this.singleton.apiUrl + "usuario/save", data, options)
-       .map( res => res.json() );	
   }
 
 }
