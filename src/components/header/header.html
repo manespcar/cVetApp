@@ -1,12 +1,7 @@
 <ion-navbar>
-  <ion-buttons start>
-    <button ion-button icon-only>
-      <ion-icon name="contact"></ion-icon>
-    </button>
-  </ion-buttons>
   <p>{{ text }}</p>
   <ion-buttons end>
-    <button ion-button icon-only>
+    <button ion-button icon-only (click)="salir()">
       <ion-icon name="log-out"></ion-icon>
     </button>
   </ion-buttons>

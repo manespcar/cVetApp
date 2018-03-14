@@ -7,19 +7,20 @@
   <ion-list>
 
     <ion-card *ngFor="let mascota of mascotas">
-      <ion-avatar item-start>
-	  	<img src="assets/imgs/default-image.jpg"/>
-	  </ion-avatar>
-	  <ion-card-content>
-	    <ion-card-title>
-	      {{ mascota.nombre }}
-	      </ion-card-title>
-	    <p>
-	      The most popular industrial group ever, and largely
-	      responsible for bringing the music to a mass audience.
-	    </p>
-	  </ion-card-content>
-	</ion-card>
+      <ion-avatar>
+				<img src="{{ mascota.imagen }}"/>
+			</ion-avatar>
+			<ion-card-content>
+				<ion-card-title>
+					{{ mascota.nombre }}
+				</ion-card-title>
+				<h5><b>Chip: </b> {{ mascota.chip }} </h5>
+				<h5><b>Fecha nacimiento: </b> {{ mascota.fechaNacimiento }} </h5>
+				<h5><b>Sexo: </b> {{ mascota.sexo }} </h5>
+				<h5><b>Raza: </b> {{ mascota.raza }} </h5>
+				<h5><b>Capa: </b> {{ mascota.capa }} </h5>
+			</ion-card-content>
+		</ion-card>
 
   </ion-list>
 

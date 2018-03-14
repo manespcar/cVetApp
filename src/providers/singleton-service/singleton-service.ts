@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IonicPage, AlertController, LoadingController, Loading, NavController } from 'ionic-angular';
+import { AlertController, LoadingController, Loading } from 'ionic-angular';
 
 
 @Injectable()
@@ -10,8 +10,8 @@ export class SingletonServiceProvider {
   public userid:number;
   public apiUrl:string;
 
-  constructor( private alertCtrl: AlertController, private loadingCtrl: LoadingController) { 
-  	this.apiUrl = '/localhost/';
+  constructor(private alertCtrl: AlertController, private loadingCtrl: LoadingController) { 
+  	this.apiUrl = 'http://10.11.112.24:8088/';
   }
 
   public showLoading(text) {
