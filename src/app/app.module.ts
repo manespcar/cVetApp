@@ -9,7 +9,7 @@ import { HeaderComponent } from '../components/header/header';
 
 import { DatosUsuarioPage } from '../pages/datosusuario/datosusuario';
 import { MascotasPage } from '../pages/mascotas/mascotas';
-import { HomePage } from '../pages/home/home';
+import { AvisosPage } from '../pages/avisos/avisos';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
@@ -26,7 +26,7 @@ import { MascotasProvider } from '../providers/mascotas/mascotas';
     MyApp,
     DatosUsuarioPage,
     MascotasPage,
-    HomePage,
+    AvisosPage,
     TabsPage,
     LoginPage,
     HeaderComponent
@@ -41,7 +41,7 @@ import { MascotasProvider } from '../providers/mascotas/mascotas';
     MyApp,
     DatosUsuarioPage,
     MascotasPage,
-    HomePage,
+    AvisosPage,
     TabsPage,
     LoginPage
   ],

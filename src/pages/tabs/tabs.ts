@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 
 import { DatosUsuarioPage } from '../datosusuario/datosusuario';
 import { MascotasPage } from '../mascotas/mascotas';
-import { HomePage } from '../home/home';
+import { AvisosPage } from '../avisos/avisos';
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
+  tab1Root = AvisosPage;
   tab2Root = DatosUsuarioPage;
   tab3Root = MascotasPage;
 

@@ -23,7 +23,6 @@ export class DatosUsuarioPage {
     console.log("Recuperando datos de usuario");
   	this.usuarioProvider.getUserById(this.singleton.userid)
   	.subscribe( data => {
-        console.log(data);
         this.usuario.nombreCompleto = data.nombreCompleto;
         this.usuario.direccion = data.direccion;
         this.usuario.email = data.email;

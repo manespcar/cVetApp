@@ -11,7 +11,8 @@ export class SingletonServiceProvider {
   public apiUrl:string;
 
   constructor(private alertCtrl: AlertController, private loadingCtrl: LoadingController) { 
-  	this.apiUrl = 'http://10.11.112.24:8088/';
+    //this.apiUrl = 'http://192.168.0.162:8088/';
+    this.apiUrl = '/localhost/';
   }
 
   public showLoading(text) {

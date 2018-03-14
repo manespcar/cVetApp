@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 import { SingletonServiceProvider } from '../../providers/singleton-service/singleton-service';
 import { LoginPage } from '../../pages/login/login';
+import { App  } from 'ionic-angular';
 
 @Component({
   selector: 'app-header',
@@ -11,28 +12,29 @@ export class HeaderComponent {
 
   text: string;
 
-  constructor(private alertCtrl: AlertController, private navCtrl: NavController, private singleton:SingletonServiceProvider) {
+  constructor(private alertCtrl: AlertController, private singleton:SingletonServiceProvider, public app: App) {
     this.text = "Hola " + this.singleton.username;
   }
 
   public salir(){
       let alert = this.alertCtrl.create({
-        title: 'Cerrrar sesión',
-        message: '¿Estás de seguro de cerrar sesión?',
+        title: '',
+        message: '¿Estás seguro que deseas salir?',
         buttons: [
           {
-            text: 'Cancelar',
+            text: 'No',
             role: 'cancel',
             handler: () => {
               console.log('Cancel clicked');
             }
           },
           {
-            text: 'Aceptar',
+            text: 'Sí',
             handler: () => {
               this.singleton.userid = null;
               this.singleton.username = null;
-              this.navCtrl.goToRoot({});
+              
+              this.app.getRootNav().setRoot(LoginPage);
             }
           }
         ]
