@@ -29,8 +29,9 @@ export class LoginPage {
    }
 
    private loadVariablesInSession(data:any) {
-     this.singleton.userid = data.id;
-     this.singleton.username = data.usuario;
+     this.singleton.userid = data.json();
+     this.singleton.username = this.registerCredentials.usuario;
+     this.singleton.token = data.headers.get('authorization');
    }
 
 }

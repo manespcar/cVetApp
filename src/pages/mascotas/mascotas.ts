@@ -23,7 +23,9 @@ export class MascotasPage {
   	.subscribe( data => {        
         this.mascotas = data;
       }, error => {
-        console.log(error);
+        if(error.status == 403){
+          this.singleton.showMessageSessionExpired();
+        }
       }
     );
   }

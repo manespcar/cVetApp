@@ -33,6 +33,7 @@ export class HeaderComponent {
             handler: () => {
               this.singleton.userid = null;
               this.singleton.username = null;
+              this.singleton.token = null;
               
               this.app.getRootNav().setRoot(LoginPage);
             }

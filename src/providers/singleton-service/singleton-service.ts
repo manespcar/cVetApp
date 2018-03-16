@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AlertController, LoadingController, Loading } from 'ionic-angular';
-
+import { Headers, RequestOptions } from '@angular/http';
+import { LoginPage } from '../../pages/login/login';
+import { App  } from 'ionic-angular';
 
 @Injectable()
 export class SingletonServiceProvider {
@@ -9,8 +11,9 @@ export class SingletonServiceProvider {
   public username:string;
   public userid:number;
   public apiUrl:string;
+  public token:string;
 
-  constructor(private alertCtrl: AlertController, private loadingCtrl: LoadingController) { 
+  constructor(private alertCtrl: AlertController, private loadingCtrl: LoadingController, public app: App) { 
     //this.apiUrl = 'http://192.168.0.162:8088/';
     this.apiUrl = '/localhost/';
   }
@@ -31,6 +34,36 @@ export class SingletonServiceProvider {
        buttons: ['OK']
      });
      alert.present();
+   }
+
+   public getRequestOptions(){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json' );
+    if(this.token){
+      headers.append('Authorization', this.token);
+    }
+    let options = new RequestOptions({ headers: headers });
+    return options;
+   }
+
+   public showMessageSessionExpired(){
+    let alert = this.alertCtrl.create({
+      title: '',
+      message: 'Su sesión ha caducado',
+      buttons: [
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.userid = null;
+            this.username = null;
+            this.token = null;
+            
+            this.app.getRootNav().setRoot(LoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
    }
 
 }

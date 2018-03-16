@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { SingletonServiceProvider } from '../../providers/singleton-service/singleton-service';
 import 'rxjs/add/operator/map';
 
@@ -11,22 +11,14 @@ export class UsuarioProvider {
   }
 
   public getUserById(id:number){
-  	let headers = new Headers();
-    headers.append('Content-Type', 'application/json' );
-    let options = new RequestOptions({ headers: headers });
-   
-    return this.http.get(this.singleton.apiUrl + "usuario/" + id, options)
+    return this.http.get(this.singleton.apiUrl + "usuario/" + id, this.singleton.getRequestOptions())
        .map( res => res.json() );
   }
 
   public saveDataUser(usuario:any){
-  	let headers = new Headers();
-    headers.append('Content-Type', 'application/json' );
-    let options = new RequestOptions({ headers: headers });
-
     let data = JSON.stringify(usuario);
 
-  	return this.http.post(this.singleton.apiUrl + "usuario/save", data, options)
+  	return this.http.post(this.singleton.apiUrl + "usuario/save", data, this.singleton.getRequestOptions())
        .map( res => res.json() );	
   }
 

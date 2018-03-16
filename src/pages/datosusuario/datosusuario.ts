@@ -28,9 +28,11 @@ export class DatosUsuarioPage {
         this.usuario.email = data.email;
         this.usuario.telefono = data.telefono;
         this.usuario.id = this.singleton.userid;
-        this.foto = (data.imagen != null || data.imagen != "") ? data.imagen : "assets/imgs/default-image.jpg";
+        this.foto = (data.imagen) ? data.imagen : "assets/imgs/default-image.jpg";
       }, error => {
-        console.log(error);
+        if(error.status == 403){
+          this.singleton.showMessageSessionExpired();
+        }
       }
     );
   }
@@ -45,7 +47,9 @@ export class DatosUsuarioPage {
              this.singleton.showAlert("", "Datos actualizados correctamente");
           });
         }, error => {
-          console.log(error);
+          if(error.status == 403){
+            this.singleton.showMessageSessionExpired();
+          }
         }
       );
   }
