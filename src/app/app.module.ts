@@ -12,6 +12,7 @@ import { MascotasPage } from '../pages/mascotas/mascotas';
 import { AvisosPage } from '../pages/avisos/avisos';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { DetallesMascotaPage } from '../pages/detalles-mascota/detalles-mascota';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +30,8 @@ import { MascotasProvider } from '../providers/mascotas/mascotas';
     AvisosPage,
     TabsPage,
     LoginPage,
-    HeaderComponent
+    HeaderComponent,
+    DetallesMascotaPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { MascotasProvider } from '../providers/mascotas/mascotas';
     MascotasPage,
     AvisosPage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    DetallesMascotaPage
   ],
   providers: [
     StatusBar,

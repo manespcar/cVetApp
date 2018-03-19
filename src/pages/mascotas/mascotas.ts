@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { MascotasProvider } from '../../providers/mascotas/mascotas';
+import { DetallesMascotaPage } from '../../pages/detalles-mascota/detalles-mascota';
 import { SingletonServiceProvider } from '../../providers/singleton-service/singleton-service';
 
 @IonicPage()
@@ -12,7 +13,7 @@ export class MascotasPage {
 
   mascotas: Array<any>;
 
-  constructor(private mascotasProvider: MascotasProvider, private singleton:SingletonServiceProvider) {
+  constructor(private mascotasProvider: MascotasProvider, private singleton:SingletonServiceProvider, private navCtrl: NavController) {
   }
 
   ionViewDidLoad() {
@@ -27,6 +28,10 @@ export class MascotasPage {
         }
       }
     );
+  }
+
+  getInfoMascota(id:number){
+    this.navCtrl.push(DetallesMascotaPage, {mascotaId:id});
   }
 
 }

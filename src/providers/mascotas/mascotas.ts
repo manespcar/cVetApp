@@ -15,4 +15,9 @@ export class MascotasProvider {
        .map( res => res.json() );
   }
 
+  public recuperarInformacionDeMascota(mascotaId:number){
+    return this.http.get(this.singleton.apiUrl + "/mascotas/" + mascotaId, this.singleton.getRequestOptions())
+       .map( res => res.json() );
+  }
+
 }

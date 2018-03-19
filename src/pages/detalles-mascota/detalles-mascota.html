@@ -1,0 +1,49 @@
+<ion-header>
+	<app-header></app-header>
+</ion-header>
+
+<ion-content padding>
+
+    
+        <img [src]="foto" (click)="tomarFoto()"/>
+        
+          <h1>
+            {{ infoMascota?.nombre }}
+          </h1>
+
+          <div *ngIf="isActive">
+            <h5>Vacunas</h5>
+            <ion-grid class="headerGrid">
+              <ion-row>
+                <ion-col col-3>
+                  Vacuna
+                </ion-col>
+                <ion-col col-4>
+                    Fecha Vacunación
+                </ion-col>
+                <ion-col col-5>
+                    Próxima Vacunación
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+    
+            <ion-grid class="contentGrid">
+              <ion-row *ngFor="let recordatorio of infoMascota?.recordatorios">
+                <ion-col col-3>
+                  {{ recordatorio.vacuna }}
+                </ion-col>
+                <ion-col col-4 class="center">
+                    {{ recordatorio.fechaVacunacion }}
+                </ion-col>
+                <ion-col col-5 class="center">
+                    {{ recordatorio.fechaProxVacunacion }}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+
+          <div *ngIf="!isActive"><h5>No existen vacunas</h5></div>
+
+      <button ion-button color="primary" full type="button" (click)="guardarFoto()">Guardar foto</button>
+
+</ion-content>

@@ -39,6 +39,7 @@ export class SingletonServiceProvider {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json' );
     if(this.token){
+      console.log('Existe token')
       headers.append('Authorization', this.token);
     }
     let options = new RequestOptions({ headers: headers });
