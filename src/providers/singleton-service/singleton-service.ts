@@ -9,12 +9,11 @@ export class SingletonServiceProvider {
 
   public loading: Loading;
   public username:string;
-  public userid:number;
   public apiUrl:string;
   public token:string;
 
   constructor(private alertCtrl: AlertController, private loadingCtrl: LoadingController, public app: App) { 
-    //this.apiUrl = 'http://192.168.0.162:8088/';
+    //this.apiUrl = 'http://192.168.0.159:8088/';
     this.apiUrl = '/localhost/';
   }
 
@@ -54,7 +53,6 @@ export class SingletonServiceProvider {
         {
           text: 'Aceptar',
           handler: () => {
-            this.userid = null;
             this.username = null;
             this.token = null;
             

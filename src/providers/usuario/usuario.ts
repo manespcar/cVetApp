@@ -10,8 +10,8 @@ export class UsuarioProvider {
     
   }
 
-  public getUserById(id:number){
-    return this.http.get(this.singleton.apiUrl + "usuario/" + id, this.singleton.getRequestOptions())
+  public getUserById(username:string){
+    return this.http.get(this.singleton.apiUrl + "usuario/" + username, this.singleton.getRequestOptions())
        .map( res => res.json() );
   }
 

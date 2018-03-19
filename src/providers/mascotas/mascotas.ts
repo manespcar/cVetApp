@@ -10,8 +10,8 @@ export class MascotasProvider {
     
   }
 
-  public recuperarMascotasByUsuarioId(id:number){   
-    return this.http.get(this.singleton.apiUrl + "/mascotas/usuario/" + id, this.singleton.getRequestOptions())
+  public recuperarMascotasByUsuarioId(username:string){   
+    return this.http.get(this.singleton.apiUrl + "/mascotas/usuario/" + username, this.singleton.getRequestOptions())
        .map( res => res.json() );
   }
 

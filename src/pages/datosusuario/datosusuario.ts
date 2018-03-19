@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map';
 export class DatosUsuarioPage {
 
   public foto:string;
-  usuario = {id:null, nombreCompleto:"", direccion:"", email:"", telefono:"", imagen:""};
+  usuario = {username:"", nombreCompleto:"", direccion:"", email:"", telefono:"", imagen:""};
 
   constructor(private usuarioProvider: UsuarioProvider, private singleton:SingletonServiceProvider, private camera: Camera) {
   }
@@ -21,13 +21,13 @@ export class DatosUsuarioPage {
   ionViewDidLoad() {
     this.singleton.showLoading('');
     console.log("Recuperando datos de usuario");
-  	this.usuarioProvider.getUserById(this.singleton.userid)
+  	this.usuarioProvider.getUserById(this.singleton.username)
   	.subscribe( data => {
+        this.usuario.username = this.singleton.username;
         this.usuario.nombreCompleto = data.nombreCompleto;
         this.usuario.direccion = data.direccion;
         this.usuario.email = data.email;
         this.usuario.telefono = data.telefono;
-        this.usuario.id = this.singleton.userid;
         this.foto = (data.imagen) ? data.imagen : "assets/imgs/default-image.jpg";
       }, error => {
         if(error.status == 403){
@@ -57,9 +57,9 @@ export class DatosUsuarioPage {
   public tomarFoto(){
     this.camera.getPicture({
         destinationType: this.camera.DestinationType.DATA_URL,      
-        sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
         targetWidth: 1000,
-        targetHeight: 1000
+        targetHeight: 1000,
+        quality: 100
     }).then((imageData) => {
       this.foto = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {

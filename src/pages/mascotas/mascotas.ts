@@ -18,8 +18,7 @@ export class MascotasPage {
   ionViewDidLoad() {
     this.singleton.showLoading('');
     console.log("Recuperando mascotas de usuario");
-    //this.mascotasProvider.recuperarMascotasByUsuarioId(this.singleton.userid)
-    this.mascotasProvider.recuperarMascotasByUsuarioId(490)
+    this.mascotasProvider.recuperarMascotasByUsuarioId(this.singleton.username)
   	.subscribe( data => {        
         this.mascotas = data;
       }, error => {

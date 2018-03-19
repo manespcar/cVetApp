@@ -31,7 +31,6 @@ export class HeaderComponent {
           {
             text: 'Sí',
             handler: () => {
-              this.singleton.userid = null;
               this.singleton.username = null;
               this.singleton.token = null;
               
