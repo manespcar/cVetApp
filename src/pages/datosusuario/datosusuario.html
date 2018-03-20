@@ -2,9 +2,10 @@
 	<app-header></app-header>
 </ion-header>
 <ion-content padding>
-
+		<div>
+			<img [src]="usuario.imagen" class="imgRedonda"/>
+		</div>
 		<ion-card>
-		  <img [src]="usuario.imagen" />
 		  <ion-card-content>
 		    <ion-card-title>
 		      {{ usuario.nombreCompleto }}

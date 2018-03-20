@@ -26,7 +26,7 @@ export class DatosUsuarioPage {
         this.usuario.direccion = data.direccion;
         this.usuario.email = data.email;
         this.usuario.telefono = data.telefono;
-        this.usuario.imagen = "assets/imgs/default-image.jpg";
+        this.usuario.imagen = "assets/imgs/default-image.png";
       }, error => {
         if(error.status == 403){
           this.singleton.showMessageSessionExpired();
